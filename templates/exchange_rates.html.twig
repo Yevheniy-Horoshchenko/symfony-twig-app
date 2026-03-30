@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/exchange_rates.css">
+{% endblock %}
+
+{% block body %}
+    <div class="buttons-container">
+        <div class="button-block">
+            <form action="{{ path('currency_rate', {'currency' : 'USD'}) }}" method="GET">
+                <button class="button">USD</button>
+            </form>
+        </div>
+        <div class="button-block">
+            <form action="{{ path('currency_rate', {'currency' : 'UAH'}) }}" method="GET">
+                <button class="button">UAH</button>
+            </form>
+        </div>
+        <div class="button-block">
+            <form action="{{ path('currency_rate', {'currency' : 'EUR'}) }}" method="GET">
+                <button class="button">EUR</button>
+            </form>
+        </div>
+        <div class="button-block">
+            <form action="{{ path('currency_rate', {'currency' : 'JPY'}) }}" method="GET">
+                <button class="button">JPY</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

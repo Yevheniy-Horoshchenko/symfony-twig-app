@@ -1,0 +1,18 @@
+.rate-block {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 0;
+}
+
+.currency {
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+.rate {
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}

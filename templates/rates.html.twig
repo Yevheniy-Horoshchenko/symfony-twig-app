@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/rates.css">
+{% endblock %}
+
+{% block body %}
+    {% for currency, rate in rates %}
+        <div class="rate-block">
+            <span class="currency">{{ currency }}:&nbsp;</span>
+            <span class="rate">{{ rate }}</span>
+        </div>
+    {% endfor %}
+{% endblock %}

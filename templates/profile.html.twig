@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="/styles/profile.css">
+{% endblock %}
+
+{% block body %}
+    <div class="profile-email">
+        <h1>{{ user.email }}</h1>
+    </div>
+
+    {{ form_start(form) }}
+        <div class="profile-container">
+            <div class="profile-input">
+                <span class="title">Your name</span>
+                {{ form_widget(form.userName) }}
+            </div>
+            <div class="profile-input">
+                <span class="title">Your last name</span>
+                {{ form_widget(form.lastName) }}
+            </div>
+            {{ form_row(form.submit) }}
+        </div>
+    {{ form_end(form) }}
+
+{% endblock %}
