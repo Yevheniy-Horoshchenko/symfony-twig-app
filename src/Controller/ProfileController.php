@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\ProfileType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -41,6 +42,15 @@ class ProfileController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var UploadedFile $userImage */
+            $userImage = $form->get('image')->getData();
+
+            $imageName = uniqid() . '.' . $userImage->guessExtension();
+
+            $userImage->move($this->getParameter('uploads_path'), $imageName);
+
+            $user->getProfile()->setImage($imageName);
+
             $entityManager->flush();
 
             return $this->redirectToRoute('get_profile');
