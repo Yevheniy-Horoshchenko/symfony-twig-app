@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Profile;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,6 +26,12 @@ class ProfileType extends AbstractType
                     'class' => 'input-field',
                     'placeholder' => 'Enter your Last name',
                 ],
+            ])
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'attr' => [
+                    'class' => 'upload',
+                ]
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Submit changes',

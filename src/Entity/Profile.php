@@ -19,11 +19,14 @@ class Profile
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id', unique: true, nullable: false)]
     private User $user;
 
-    #[ORM\Column(name: 'user_name', type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'user_name', nullable: true)]
     private ?string $userName = null;
 
-    #[ORM\Column(name: 'last_name', type: Types::STRING, nullable: true)]
+    #[ORM\Column(name: 'last_name', nullable: true)]
     private ?string $lastName = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $image = null;
 
     public function getId(): ?int
     {
@@ -62,6 +65,18 @@ class Profile
     public function setLastName(string $lastName): static
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): static
+    {
+        $this->image = $image;
 
         return $this;
     }

@@ -9,7 +9,7 @@
         <h1>{{ user.email }}</h1>
     </div>
 
-    {{ form_start(form) }}
+    {{ form_start(form, { attr: { novalidate: 'novalidate' } }) }}
         <div class="profile-container">
             <div class="profile-input">
                 <span class="title">Your name</span>
@@ -18,6 +18,13 @@
             <div class="profile-input">
                 <span class="title">Your last name</span>
                 {{ form_widget(form.lastName) }}
+            </div>
+            <div class="profile-input">
+                <span class="title avatar-label">Your avatar</span>
+                {% if user.profile.image %}
+                    <img src="{{ asset('uploads/' ~ user.profile.image) }}" alt="Avatar" class="avatar">
+                {% endif %}
+                {{ form_widget(form.image) }}
             </div>
             {{ form_row(form.submit) }}
         </div>

@@ -1,0 +1,34 @@
+.header-top {
+    width: 100%;
+    background-color: #3490dc;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+
+.name {
+    font-size: 25px;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: white;
+    font-weight: bold;
+}
+
+.avatar-main {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: left;
+    cursor: pointer;
+    display: block;
+}
+
+.avatar-link {
+    display: block;
+}
